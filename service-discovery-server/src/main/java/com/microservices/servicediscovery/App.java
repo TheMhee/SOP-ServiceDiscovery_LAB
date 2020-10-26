@@ -46,21 +46,21 @@ public class App {
         instanceHash.put("SERVICE4", null);
         instanceHash.put("SERVICE5", null);
 
-        //System.out.println(resultJson);
+        
         JsonArray instances =  ((JsonObject) resultJson.get("applications")).getAsJsonArray("application");
 		for (int i=0; i<instances.size(); i++) {
 			JsonObject instance = (JsonObject) instances.get(i);
 			//System.out.print(instance);
 			JsonObject instanceDetail = (JsonObject) instance.getAsJsonArray("instance").get(0);
 			//System.out.print(instanceDetail);
-			System.out.println("app : "+instanceDetail.get("app").toString());
-			System.out.println("status : "+instanceDetail.get("status").toString());
+			//System.out.println("app : "+instanceDetail.get("app").toString());
+			//System.out.println("status : "+instanceDetail.get("status").toString());
 			//instanceDetailList.add(new InstanceDetail(instanceDetail.get("app").toString(), instanceDetail.get("status").toString()));
 			instanceHash.put(instanceDetail.get("app").toString().replace("\"", ""), instanceDetail.get("status").toString());
 			
 			
 		}
-		System.out.println(instanceHash.get("SERVICE1"));
+		//System.out.println(instanceHash.get("SERVICE1"));
 		System.out.println(instanceHash.toString());
 		String html = "<html>\n" + 
 				"<header>"
